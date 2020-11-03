@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="{% static 'gallery/favicon.png' %}" rel="shortcut icon" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Static files -->
+    {% include 'base/css.html' %}
+    {% include 'base/js.html' %}
+    {% include 'base/font.html' %}
+
+    <title>
+        DC Kenol
+        {% block title %} {% endblock %}
+    </title>
+</head>
+<body>
+
+    <!-- Pre loader -->
+    <!-- {% include 'partials/_preloader.html' %} -->
+
+    <!-- Navbar -->
+    {% include 'partials/_navbar.html' %}
+
+    <!-- Main Content -->
+    {% block content %} {% endblock %}
+
+    
+    <!-- Custom Javascript -->
+    {% block javascript %} {% endblock %}
+    
+</body>
+</html>
+

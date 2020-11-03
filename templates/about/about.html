@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+
+{% for about in about %}
+<div>
+    <ul>
+        <li>{{ about.title }}</li>
+        <li>{{ about.description }}</li>
+        <li>{{ about.message }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+

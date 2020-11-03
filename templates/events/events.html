@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Upcoming Events {% endblock %}
+
+{% block content %}
+
+{% for event in event %}
+<div>
+    <ul>
+        <li>{{ event.name }}</li>
+        <li>{{ event.title }}</li>
+        <li>{{ event.description }}</li>
+        <li>{{ event.ministry }}</li>
+        <li>{{ event.fee }}</li>
+        <li>{{ event.date }}</li>
+        <li>{{ event.time }}</li>
+        <li>{{ event.location }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+

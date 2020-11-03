@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Home {% endblock %}
+
+{% block content %}
+
+<header class="mb-2">
+    {% include 'partials/_header.html' %}
+</header>
+<br>
+<div class="container">
+    <div class="mb-2">
+        {% include 'partials/about/_about.html' %}
+    </div>
+    <div class="mb-2">
+        {% include 'partials/about/_team.html' %}
+    </div>
+    <div class="mb-2">
+        {% include 'partials/contacts/_contact.html' %}
+    </div>
+    <div class="mb-2" style="text-decoration: none;">
+        {% include 'partials/events/_event.html' %}    
+    </div>
+    <div class="mb-2">
+        {% include 'partials/ministries/_ministry.html' %}    
+    </div>
+    <div class="mb-2">
+        {% include 'partials/sermons/_sermon.html' %}    
+    </div>
+</div>
+
+{% endblock %}

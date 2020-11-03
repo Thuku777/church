@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Sermons {% endblock %}
+
+{% block content %}
+
+{% for sermon in sermon %}
+<div>
+    <ul>
+        <li>{{ sermon.title }}</li>
+        <li>
+            <iframe width="560" height="345" src="{{ sermon.sermon }}?rel=0" frameborder="0" allowfullscreen></iframe>
+        </li>
+        <li>{{ sermon.created_by }}</li>
+        <li>{{ sermon.date_posted }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+

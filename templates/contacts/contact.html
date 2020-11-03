@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Contact Us {% endblock %}
+
+{% block content %}
+
+{% for contact in contact %}
+<div>
+    <ul>
+        <li>{{ contact.phone }}</li>
+        <li>{{ contact.email }}</li>
+        <li>{{ contact.location }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+

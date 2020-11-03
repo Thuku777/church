@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | Ministries {% endblock %}
+
+{% block content %}
+
+{% for ministry in ministry %}
+<div>
+    <ul>
+        <li>{{ ministry.name }}</li>
+        <li>{{ ministry.chairperson }}</li>
+        <li>{{ ministry.vice_chairperson }}</li>
+        <li>{{ ministry.treasurer }}</li>
+        <li>{{ ministry.secretary }}</li>
+        <li>{{ ministry.date }}</li>
+        <li>{{ ministry.description }}</li>
+        <li>{{ ministry.date_posted }}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
+

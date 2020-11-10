@@ -1,3 +1,30 @@
-<button class="btn btn-sm btn-warning">
-    <a class="link" href="{% url 'event' %}">Upcoming Events</a>
-</button>
+<!-- ======= Counts Section ======= -->
+    <section class="counts section-bg">
+      <div class="container">
+        <div class="section-title">
+            <h2>Upcoming Events</h2>
+        </div>
+
+        <div class="row">
+          {% for event in event reversed %}
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="count-box" style="height: 22rem;">
+              <h4 style="color: #20b38e;">{{event.name}}</h4>
+              <h5 data-toggle="counter-up">Fee: Ksh {{event.fee}}</h5>
+              <p>Location: {{event.location}}</p>
+              <p>Date: {{event.date}}</p>
+              <br>
+              <blockquote>Posted on: {{event.date_posted}}</blockquote>
+            </div>
+            <br>
+            <button class="btn btn-sm btn-outline-primary mb-2"><a href="{% url 'event' %}">Readmore>></a> </button>            
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+<!-- End Counts Section -->
+
+
+

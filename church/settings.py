@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'pages',
     'sermons',
 
+    'embed_video'
+
 ]
 
 MIDDLEWARE = [
@@ -95,8 +97,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'church',
-        'USER': 'postgres',
-        'PASSWORD': '3096',
+        'USER': 'thuku',
+        'PASSWORD': 'kahuro777',
         'HOST': 'localhost',
         'PORT': '',
     }

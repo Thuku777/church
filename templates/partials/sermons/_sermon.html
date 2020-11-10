@@ -1,3 +1,90 @@
-<button class="btn btn-sm btn-danger">
-    <a class="link" href="{% url 'sermon' %}">Our Sermons</a>
-</button>
+{% load static %}
+{% load embed_video_tags %}
+
+<!-- ======= Services Section ======= -->
+ <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Previous Sermons</h2>
+      </div>
+
+      <div class="row">
+        {% for sermon in sermon reversed %}
+        {% if forloop.counter %}
+        <div class="col-lg-4 col-md-6 icon-box animate__animated animate__fadeInUp">
+            <div class="icon">
+                <!-- The video tag: -->
+                {% video sermon.sermon as my_video %}
+                {% video my_video '450x350' %}
+                {% endvideo %}
+            </div>
+            <h4 class="title"><a href="">{{sermon.title}}</a></h4>
+            <p class="description">{{sermon.created_by}}</p>
+            <blockquote>{{sermon.date_posted}}</blockquote>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+
+
+<!--Carousel Wrapper-->
+<!-- <div class="w3-card mr-2 col-sm-5 animate__animated animate__fadeInUp">
+  <br>
+<div id="multi-item-example" class="carousel slide carousel-multi-item animate__animated animate__fadeInUp" data-ride="carousel">
+
+  <div class="col-6 text-right">
+    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+        <i class="fa fa-arrow-left"></i>
+    </a>
+    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+        <i class="fa fa-arrow-right"></i>
+    </a>
+</div>
+
+  <ol class="carousel-indicators">
+    {% for sermon in sermon %}
+    {% if forloop.first %}
+    <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}" class="active"></li>
+    {% else %}
+    <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}"></li>
+    {% endif %}
+  {% endfor %}
+    <li data-target="#multi-item-example" data-slide-to="2"></li>
+  </ol>
+
+  
+  <div class="carousel-inner" role="listbox">
+      {% for sermon in sermon reversed %}
+      {% if forloop.first %}
+          <div class="carousel-item active  ">
+      {% else %}
+          <div class="carousel-item  ">
+      {% endif %}
+      <div class="col-sm-12" style="float:left">
+       <div class="card mb-2">
+          <div class="card-img-top">
+            {% video sermon.sermon as my_video %}
+            {% video my_video %}
+            {% endvideo %}
+          </div>
+          <div class="card-body" style="text-align: center;">
+            <h4 class="card-title">{{sermon.title}}</h4>
+            <p class="card-text">{{sermon.created_by}}</p>
+            <blockquote>{{sermon.date_posted}}</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+<br>
+</div>
+<br> -->
+<!--/.Carousel Wrapper-->  

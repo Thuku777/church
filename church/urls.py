@@ -10,7 +10,7 @@ urlpatterns = [
     # path('blog/', include('blog.urls')),
     path('contacts/', include('contacts.urls')),
     path('events/', include('events.urls')),
-    # path('media/', include('media.urls')),
+    path('media/', include('media.urls')),
     path('ministries/', include('ministries.urls')),
     path('sermons/', include('sermons.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

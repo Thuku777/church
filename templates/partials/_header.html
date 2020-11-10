@@ -1,46 +1,45 @@
 {% load static %}
 
-<!-- <div>
-  <div class="tm-row">
-      <div class="tm-col-left"></div>
-      <main class="tm-col-right">
-        <section class="tm-content">
-          {% for slide in slide %}
-          <div class="media my-3 mb-5 tm-service-media tm-service-media-img-l">
-            <img src="{{slide.image.url }}" alt="Image" class="tm-service-img">
-            <div class="media-body tm-service-text">
-                <h2 class="mb-4 tm-content-title">{{ slide.title }}</h2>
-                <p>{{slide.description}}</p>
-            </div> 
-          </div>
-          {% endfor %}
-        </section>
-      </main>
-  </div>
-</div> -->
-
-
-<div class="banner">
-  <div class="row">
-    <div class="col-sm-5">
-      <div class="content">
-        <h2>Welcome to Deliverance Church Kenol</h2>
-        <p>A place for everyone</p>
-      </div>
-    </div>
-    <div class="col-sm-6 slide-col w3-opacity">
-      <div class="slide">
+<section id="hero">
+  <div class="hero-container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
         {% for slide in slide %}
-          <div class="slide-content">
-            <img src="{{slide.image.url }}" alt="Image" class="tm-service-img">
-            <div class="media-body tm-service-text">
-                <h2 class="content-title">{{ slide.title }}</h2>
-                <p>{{slide.description}}</p>
-            </div> 
-          </div>
+          {% if forloop.first %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="active"></li>
+            {% else %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"></li>
+            {% endif %}
           {% endfor %}
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+      <div class="carousel-inner">
+        {% for slide in slide %}
+          {% if forloop.first %}
+              <div class="carousel-item active  ">
+          {% else %}
+              <div class="carousel-item  ">
+          {% endif %}
+          <img class="d-block w-100 h-100" class="h-100 d-inline-block" src="{{slide.image.url}}" alt="">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>DC Kenol</span></h2>
+                <h2 class="animate__animated animate__fadeInDown">{{ slide.title }}</h2>
+                <p class="animate__animated animate__fadeInUp">{{slide.description}}</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
-  
-</div>
+</section>

@@ -1,3 +1,33 @@
-<button class="btn btn-sm btn-secondary">
-    <a class="link" href="{% url 'leader' %}">DC Kenol Team</a>
-</button>
+  {% load static %}
+
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Our Team</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+    </div>
+
+    <div class="row">
+      {% for leader in leader %}
+      <div class="col-xl-3 col-lg-4 col-md-6 animate__animated animate__fadeInUp">
+        <div class="member">
+          <div class="pic"><img src="{{leader.image.url}}" class="img-fluid" style="height: 17rem; width: 17rem;" alt=""></div>
+          <div class="member-info">
+            <h4>{{leader.name}}</h4>
+            <span>{{leader.title}}</span>
+            <div class="social">
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-instagram"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section><!-- End Our Team Section -->

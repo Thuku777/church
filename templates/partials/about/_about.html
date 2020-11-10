@@ -1,3 +1,50 @@
-<button class="btn btn-sm btn-dark">
-    <a class="link" href="{% url 'about' %}">About us</a>
-</button>
+{% load static %}
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="../../../static/img/about.jpg" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=nW2IkpJ0kT0" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+            {% for about in about %}
+            <div class="section-title">
+              <h2>{{about.title}}</h2>
+              <p>{{about.description}}</p>
+              <br>
+              <p>{{about.message|truncatechars:200}}</p>
+              <br>
+              <button class="btn btn-sm btn-outline-primary"><a href="{% url 'about' %}">Readmore>></a> </button>
+            </div>
+
+            <div class="icon-box" >
+              <div class="icon"><i class="fa fa-fingerprint"></i></div>
+              <h4 class="title"><a href="">Our Mission</a></h4>
+              <p class="description">{{about.mission}}</p>
+            </div>
+
+            <div class="icon-box" >
+              <div class="icon"><i class="fa fa-gift"></i></div>
+              <h4 class="title"><a href="">Our Beliefs</a></h4>
+              <p class="description">{{about.beliefs}}</p>
+            </div>
+
+            <div class="icon-box" >
+                <div class="icon"><i class="fa fa-gift"></i></div>
+                <h4 class="title"><a href="">Our Benefits</a></h4>
+                <p class="description">{{about.benefits}}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+
+    

@@ -5,32 +5,45 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>DC Kenol Team</h1>             
-    <div class="row">
-        <div class="col-sm-6">
-            <h4>Our Pastors</h4>
+    <!-- Navbar -->
+    {% include 'partials/_navbar2.html' %}
+
+    <div class="w3-container">
+        <h2>The Pastoral Team</h2>
+        <div class="row">
             {% for leader in leader %} 
             {% if leader.is_pastor %}
-            <p>{{leader.name}}</p>
-            <p>{{leader.title}}</p>
-            <img src="{{leader.image.url}}" alt="Pastor's Image">
+            <div class="w3-card-4 m-4">
+            <img src="{{leader.image.url}}" alt="image" style="width: 22rem; height: 18rem;">
+            <div class="w3-container w3-center w3-blue">
+                <br>
+                <p>{{leader.name}}</p>
+                <p>{{leader.title}}</p>
+            </div>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
 
-        <div class="col-sm-6">
-            <h4>Our Leaders</h4>
+        <h2>DC Kenol Leaders</h2>
+        <div class="row">
             {% for leader in leader %} 
             {% if leader.is_leader %}
-            <p>{{leader.name}}</p>
-            <p>{{leader.title}}</p>
-            <img src="{{leader.image.url}}" alt="Leader's Image">
+            <div class="w3-card-4 m-4">
+            <img src="{{leader.image.url}}" alt="image" style="width:22rem; height: 18rem;">
+            <div class="w3-container w3-center w3-blue">
+                <br>
+                <p>{{leader.name}}</p>
+                <p>{{leader.title}}</p>
+            </div>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
     </div>
-</div>
 
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %}
 
 {% endblock %}
+

@@ -20,4 +20,4 @@ class SlideAdmin(admin.ModelAdmin):
 
 admin.site.register(Slide, SlideAdmin)
 
-
+admin.site.register(Contact)

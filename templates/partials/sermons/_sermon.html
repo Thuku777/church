@@ -16,10 +16,10 @@
             <div class="icon">
                 <!-- The video tag: -->
                 {% video sermon.sermon as my_video %}
-                {% video my_video '450x350' %}
+                {% video my_video '350x350' %}
                 {% endvideo %}
             </div>
-            <h4 class="title"><a href="">{{sermon.title}}</a></h4>
+            <h4 class="title">{{sermon.title}}</h4>
             <p class="description">{{sermon.created_by}}</p>
             <blockquote>{{sermon.date_posted}}</blockquote>
         </div>
@@ -27,6 +27,10 @@
         {% endfor %}
       </div>
 
+    </div>
+
+    <div class="container mt-5 animate__animated animate__fadeInUp">
+      <a class="btn btn-sm btn-block btn-outline-dark" href="{% url 'sermon' %}">More Sermons</a>
     </div>
   </section><!-- End Services Section -->
 

@@ -8,7 +8,7 @@ class Event(models.Model):
     title = models.CharField(max_length=100, help_text="eg. Conference, Meeting etc")
     ministry = models.ForeignKey(Ministry, on_delete=models.DO_NOTHING, blank=True, null=True)
     description = models.TextField(max_length=1000)
-    fee = models.CharField(max_length=100, help_text="If free write free otherwise input the amount")
+    fee = models.CharField(max_length=100, default=0.00, help_text="If free write 0.00 otherwise input the amount")
     location = models.CharField(max_length=100, help_text="Location of the event")
     date = models.CharField(max_length=250, help_text="eg. 20th September 2020 to 30th September 2020")
     time = models.CharField(max_length=250, help_text="eg. 1030hrs to 1400hrs")

@@ -5,15 +5,57 @@
 
 {% block content %}
 
-{% for about in about %}
-<div>
-    <ul>
-        <li>{{ about.title }}</li>
-        <li>{{ about.description }}</li>
-        <li>{{ about.message }}</li>
-    </ul>
-</div>
-{% endfor %}
+    <!-- Navbar -->
+    {% include 'partials/_navbar2.html' %}
+
+    <!-- header  -->
+    {% include 'partials/_header.html' %}
+
+    <section id="about" class="about">
+        <div class="container-fluid">
+  
+          <div class="row no-gutters">
+            <div class="col-lg-6 video-box">
+              <img src="../../../static/img/about.jpg" class="img-fluid mt-5" alt="">
+              <a href="https://www.youtube.com/watch?v=nW2IkpJ0kT0" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            </div>
+  
+            <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+              {% for about in about %}
+              <div class="section-title">
+                <h2>{{about.title}}</h2>
+                <p>{{about.description}}</p>
+                <br>
+                <p>{{about.message}}</p>
+                <br>
+              </div>
+  
+              <div class="icon-box" >
+                <div class="icon"><i class="fa fa-briefcase"></i></div>
+                <h4 class="title"><a href="">Our Mission</a></h4>
+                <p class="description">{{about.mission}}</p>
+              </div>
+  
+              <div class="icon-box" >
+                <div class="icon"><i class="fa fa-group"></i></div>
+                <h4 class="title"><a href="">Our Beliefs</a></h4>
+                <p class="description">{{about.beliefs}}</p>
+              </div>
+  
+              <div class="icon-box" >
+                  <div class="icon"><i class="fa fa-gift"></i></div>
+                  <h4 class="title"><a href="">Our Benefits</a></h4>
+                  <p class="description">{{about.benefits}}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+  
+        </div>
+      </section>
+
+<!-- Footer -->
+{% include 'partials/_footer.html' %}
 
 {% endblock %}
 

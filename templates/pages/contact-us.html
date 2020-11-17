@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} | Contact Us {% endblock %}
+
+{% block content %}
+
+    <!-- Navbar -->
+    {% include 'partials/_navbar2.html' %}
+<div style="background: whitesmoke;">
+    <br>
+    <div class="m-5">
+        <div class="container main-contact-section mt-5">
+            <form id="contact-form" method="post" data-url="/contact_us/">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-6">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+                </div>
+                {{ form.message|as_crispy_field }}
+                <button type="submit" id="submit" class="btn btn-sm btn-outline-success">Send Message</button>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
+{% include 'partials/_footer.html' %}
+{% endblock%}
+
+{% block script %}
+<script type="text/javascript">
+$(document).ready(function() {
+    var $myForm = $('#contact-form');
+    $myForm.submit(function(event){
+        event.preventDefault();
+        var $formData = $myForm.serialize();
+        var $thisURL = $myForm.attr('data-url') || window.location.href;
+        $.ajax({
+            method: 'POST',
+            url: $thisURL,
+            data: $formData,
+            success: handleSuccess,
+            error: handleError,
+        });
+        function handleSuccess(data){
+            console.log(data.message);
+            $myForm[0].reset();
+            swal({
+                title: "Thankyou!",
+                text: "Your message has been submitted successfully.We'll get back to you soon!",
+                icon: "success",
+                button: "Ok",
+                });
+        }
+        function handleError(ThrowError){
+            console.log(ThrowError);
+        }
+    });
+
+});
+
+</script>
+{% endblock %}

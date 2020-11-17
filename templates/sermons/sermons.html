@@ -1,22 +1,47 @@
 {% extends 'base.html' %} 
 {% load static %}
+{% load embed_video_tags %}
 
 {% block title %} | Sermons {% endblock %}
 
 {% block content %}
 
-{% for sermon in sermon %}
-<div>
-    <ul>
-        <li>{{ sermon.title }}</li>
-        <li>
-            <iframe width="560" height="345" src="{{ sermon.sermon }}?rel=0" frameborder="0" allowfullscreen></iframe>
-        </li>
-        <li>{{ sermon.created_by }}</li>
-        <li>{{ sermon.date_posted }}</li>
-    </ul>
+    <!-- Navbar -->
+    {% include 'partials/_navbar2.html' %}
+<div class="container-fluid" style="background: whitesmoke;">
+    <h2 class="w3-center">More of our sermons</h2>
+    <div class="row">
+        {% for sermon in sermon reversed %}
+        <div class="col-md-4 mt-3 mb-2 ">
+            <div class="card">
+                <div class="card-image">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <!-- The video tag: -->
+                    {% video sermon.sermon as my_video %}
+                    {% video my_video '350x350' %}
+                    {% endvideo %}
+                    </div>
+                    
+                </div><!-- card image -->
+                
+                <div class="card-content">
+                    <span class="card-title">Title: {{sermon.title}}</span>
+                    <p>Created By: {{sermon.created_by}}</p>
+                    <blockquote>Posted on: {{sermon.date_posted}}</blockquote>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <br>
 </div>
-{% endfor %}
+
+    <!-- Footer -->
+{% include 'partials/_footer.html' %}
+
 
 {% endblock %}
+
+
 

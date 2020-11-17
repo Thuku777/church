@@ -1,8 +1,8 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg w3-white">
+ <nav class="navbar navbar-expand-lg w3-white">
   <a class="navbar-brand ml-5" style="width: 30px; height: 35px;" href="{% url 'index' %}"><img src="{% static 'gallery/favicon.png' %}" alt="" class="img-fluid"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler mt-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon fa fa-bars mt-2"></span>
   </button>
   <div class="collapse navbar-collapse ml-5" id="navbarNav" style="align-content: flex-end;">
@@ -19,46 +19,46 @@
         </a>
       </li>
       <li 
-        {% if '/#about' == request.path %}
+        {% if 'about' == request.path %}
           class="nav-item active  mr-3"
         {% else %}
           class="nav-item mr-3"
         {% endif %}
       >
-          <a class="nav-link" href="#about">
+          <a class="nav-link" href="{% url 'about' %}">
             <i class="fa fa-pencil ml-3"></i> About Us
          </a>
       </li>
       <li 
-        {% if '/#services' == request.path %}
+        {% if '/' == request.path %}
           class="nav-item active  mr-3"
         {% else %}
           class="nav-item mr-3"
         {% endif %}
       >
-          <a class="nav-link" href="#services">
+          <a class="nav-link" href="{% url 'sermon' %}">
             <i class="fa fa-book ml-3"></i> Sermons
          </a>
       </li>
       <li 
-        {% if '/#team' == request.path %}
+        {% if '/' == request.path %}
           class="nav-item active  mr-3"
         {% else %}
           class="nav-item mr-3"
         {% endif %}
       >
-          <a class="nav-link" href="#team">
+          <a class="nav-link" href="{% url 'leader' %}">
             <i class="fa fa-user ml-3"></i> Team
          </a>
       </li>
       <li 
-        {% if '/#contact' == request.path %}
+        {% if 'contact-us' == request.path %}
           class="nav-item active  mr-3"
         {% else %}
           class="nav-item mr-3"
         {% endif %}
       >
-          <a class="nav-link" href="#contact">
+          <a class="nav-link" href="{% url 'contact-us' %}">
             <i class="fa fa-phone ml-3"></i> Contact Us
          </a>
       </li>

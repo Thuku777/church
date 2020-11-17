@@ -23,13 +23,11 @@ class Slide(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, **kwargs):
-    #     super().save()
- 
+class Contact(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField() 
+    timestamp = models.DateTimeField(default=timezone.now)
 
-    #     img = Image.open(self.image.path)
-
-    #     if img.height > 420 or img.width > 390:
-    #         output_size = (420, 390)
-    #         img.thumbnail(output_size)
-            # img.save(self.image.path)
+    def __str__(self):
+        return self.name
